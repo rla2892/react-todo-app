@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../redux/slices/todoSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function TodoInput () {
     const dispatch = useDispatch();
     const [inputTodo, setInputTodo] = useState('');
 
     const handleAddTodo = () => {
-        dispatch(addTodo(inputTodo));
+        const todo = {
+            id: uuidv4(),
+            text: inputTodo
+        }
+        dispatch(addTodo(todo));
       };
 
     return (
