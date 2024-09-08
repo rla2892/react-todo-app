@@ -10,7 +10,8 @@ export default function TodoInput () {
     const handleAddTodo = () => {
         const todo = {
             id: uuidv4(),
-            text: inputTodo
+            text: inputTodo,
+            isCompleted: false,
         }
         dispatch(addTodo(todo));
       };
